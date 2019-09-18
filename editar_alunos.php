@@ -26,10 +26,10 @@ if(isset($_REQUEST['atualizar']))
         $stmt->bindParam(10, $_REQUEST['cep']);
         $stmt->bindParam(11, $_REQUEST['id_aluno']);
         $stmt->execute();
-
     }
 
     if(isset($_REQUEST['excluir']))
+
     {
 
        $stmt = $conexao->prepare("DELETE FROM aluno WHERE id = ?");
@@ -43,13 +43,14 @@ if(isset($_REQUEST['atualizar']))
     $stmt->execute();
     $aluno = $stmt->fechObject();
 
-    }catch(Exception $e) {
+    }
+    catch(Exception $e) {
         echo $e->getMessage();
     }
-}
 
 ?>
 <link href="css/estilos.css" type="text/css" rel="stylesheet"/>
+<?php include_once 'includes/cabecalho.php' ?>
 <div>
 <fieldset>
     <legend>Cadastro de Aluno </legend>
